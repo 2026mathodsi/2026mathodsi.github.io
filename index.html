@@ -387,7 +387,7 @@ footer .btn.primary{color:#0B1622;border-color:var(--pass-deep)}
     <div class="fw-steps" id="fwsteps">
       <div class="fw-step on"><span class="k">01</span><h3>让过程可读</h3><p>对同一道题采多条思维链，把卡住的岔路口标出来。奖励知道该给哪一步，而不只看最后的答案。</p></div>
       <div class="fw-step"><span class="k">02</span><h3>把假设变成可判定的预测</h3><p>答案、数值、证明或脚本，每一条都必须能被某个判据明确判对或判错。</p></div>
-      <div class="fw-step"><span class="k">03</span><h3>便宜层日常奖励，昂贵层只做校准</h3><p>判据库、单元测试、数值仿真承担日常奖励；专家与真实实验只在关键处抽查标定。</p></div>
+      <div class="fw-step"><span class="k">03</span><h3>便宜层跑日常奖励，昂贵层只做校准</h3><p>判据库、单元测试、仿真数据构成便宜层，承担日常 RL 奖励；实验数据与专家评审构成昂贵层，只在关键处校准。</p></div>
       <div class="fw-step"><span class="k">04</span><h3>失败也是数据</h3><p>被否掉的分支、失败的实验一起回流，同时成为 SFT 轨迹和 RL 偏好对。</p></div>
     </div>
     <figure class="fw-figure rv">
@@ -455,7 +455,7 @@ footer .btn.primary{color:#0B1622;border-color:var(--pass-deep)}
   </div>
   <div class="prods">
     <div class="prod rv"><span class="role">选择问题</span><h3>验证数据授权</h3><p class="q">全对或全错都没有信号，题要刚好够得着。</p><p>难度校准的题库与私有评测，按学科与强度分级的年度授权。</p></div>
-    <div class="prod rv d1"><span class="role">定义正确</span><h3>验证引擎 + 多保真度奖励栈</h3><p class="q">验证器一宽松，模型就会钻空子。</p><p>判据库订阅；便宜层做 RL 奖励，昂贵层定期校准。</p></div>
+    <div class="prod rv d1"><span class="role">定义正确</span><h3>验证引擎 + 多保真度奖励栈</h3><p class="q">验证器一宽松，模型就会钻空子。</p><p>判据库与单元测试跑日常奖励，仿真数据抽样校验，实验数据与专家评审定期校准。</p></div>
     <div class="prod rv d2"><span class="role">评判结果</span><h3>科学数据工程与专家评审</h3><p class="q">722 篇论文发布次日，撤回 3 篇、修订 14 篇。</p><p>把论文、仿真与实验转成结构化条目、裁判模型、过程数据。</p></div>
   </div>
 </div></section>
