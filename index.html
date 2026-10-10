@@ -258,26 +258,6 @@ footer .btn{color:var(--on-deep);border-color:var(--deep-line)}
 footer .btn:hover{border-color:var(--on-deep-2)}
 footer .btn.primary{color:#0B1622;border-color:var(--pass-deep)}
 
-/* 联系表单 */
-.calt{font:13px/1.7 var(--mono);color:#6F8296;margin:32px 0 0;max-width:60ch}
-.calt a{color:var(--on-deep-2)}
-.cform{margin-top:24px;max-width:720px}
-.cform .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
-.cform .fields{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.cform label{display:grid;gap:8px;font:500 12px/1 var(--mono);letter-spacing:.08em;color:var(--on-deep-2)}
-.cform .full{grid-column:1/-1}
-.cform input,.cform select,.cform textarea{width:100%;background:transparent;border:1px solid var(--deep-line);border-radius:12px;color:var(--on-deep);font:15px/1.5 var(--body);padding:13px 15px;min-height:50px;transition:border-color .2s}
-.cform textarea{resize:vertical;min-height:96px}
-.cform input::placeholder,.cform textarea::placeholder{color:#5C7085}
-.cform input:focus,.cform select:focus,.cform textarea:focus{outline:none;border-color:var(--pass-deep)}
-.cform select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,#6F8296 50%),linear-gradient(135deg,#6F8296 50%,transparent 50%);background-position:calc(100% - 20px) 50%,calc(100% - 14px) 50%;background-size:6px 6px,6px 6px;background-repeat:no-repeat}
-.cform .send{display:flex;flex-wrap:wrap;align-items:center;gap:16px;margin-top:20px}
-.cform .hint{font:12px/1.6 var(--mono);color:#6F8296}
-.cform .hint a{color:var(--on-deep-2)}
-.cform .status{font:13px/1.6 var(--mono);color:var(--pass-deep);margin:14px 0 0;min-height:1.4em}
-.fine a{color:#8FA3B8;text-decoration:none;border-bottom:1px solid var(--deep-line)}
-.fine a:hover{color:var(--on-deep)}
-@media (max-width:640px){.cform .fields{grid-template-columns:1fr}}
 .fine{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin-top:96px;padding-top:22px;border-top:1px solid var(--deep-line);font:12px/1.6 var(--mono);color:#6F8296}
 
 /* 进场动画 */
@@ -513,24 +493,6 @@ footer .btn.primary{color:#0B1622;border-color:var(--pass-deep)}
     <a class="btn" href="https://jcn9vrrpqpbr.feishu.cn/share/base/form/shrcnVVTWiiBbYaMY2KA8T1hRYc" target="_blank" rel="noopener noreferrer">加入我们</a>
   </div>
 
-  <p class="calt rv d2">上面的按钮打开飞书问卷；不方便用飞书时，直接在下面留言，同样会发到 <a href="mailto:hy.li@secrova.com">hy.li@secrova.com</a>。</p>
-  <form class="cform rv d3" id="cform" novalidate
-        action="https://formsubmit.co/hy.li@secrova.com" method="POST">
-    <input type="hidden" name="_subject" value="原绎智能官网留言">
-    <input type="hidden" name="_template" value="table">
-    <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-    <div class="fields">
-      <label>称呼<input name="name" required autocomplete="name" placeholder="姓名 / 称呼"></label>
-      <label>联系方式<input name="contact" required autocomplete="email" placeholder="邮箱 / 微信"></label>
-      <label class="full">我想聊<select name="intent"><option>合作咨询</option><option>加入我们</option><option>其他</option></select></label>
-      <label class="full">留言<textarea name="message" rows="3" placeholder="研究方向、机构、或者你想解决的问题"></textarea></label>
-    </div>
-    <div class="send">
-      <button class="btn primary" type="submit">发送</button>
-      <span class="hint">直投 <a href="mailto:hy.li@secrova.com">hy.li@secrova.com</a></span>
-    </div>
-    <p class="status" id="cformStatus" role="status" aria-live="polite"></p>
-  </form>
   <div class="fine"><span>© 2026 原绎智能 · Mathod Super Intelligence</span><span><a href="mailto:hy.li@secrova.com">hy.li@secrova.com</a></span><span>北京海淀区</span></div>
 </div></footer>
 
@@ -592,31 +554,6 @@ footer .btn.primary{color:#0B1622;border-color:var(--pass-deep)}
   });
   play();
 
-  /* 联系表单：先尝试直接投递（formsubmit.co，收件人 hy.li@secrova.com），
-     网络不可达或未激活时自动回退到邮件客户端，保证留言不会丢。 */
-  var f=doc.getElementById('cform'), st=doc.getElementById('cformStatus');
-  var TO='hy.li@secrova.com';
-  if(f){
-    doc.querySelectorAll('[data-intent]').forEach(function(a){
-      a.addEventListener('click',function(){var s=f.querySelector('select[name=intent]');if(s)s.value=a.getAttribute('data-intent');});
-    });
-    f.addEventListener('submit',function(ev){
-      ev.preventDefault();
-      var d={};new FormData(f).forEach(function(v,k){d[k]=v;});
-      if(!d.name||!d.contact){st.textContent='请先填写称呼和联系方式。';return;}
-      var mailto=function(){
-        var body='称呼：'+(d.name||'')+'\n联系方式：'+(d.contact||'')+'\n我想聊：'+(d.intent||'')+'\n留言：'+(d.message||'');
-        location.href='mailto:'+TO+'?subject='+encodeURIComponent('「原绎智能」'+(d.intent||'合作咨询'))+'&body='+encodeURIComponent(body);
-        st.textContent='已为你打开邮件客户端，点发送即可；也可以直接发到 '+TO+'。';
-      };
-      st.textContent='发送中…';
-      fetch('https://formsubmit.co/ajax/'+TO,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},
-        body:JSON.stringify({name:d.name,contact:d.contact,intent:d.intent,message:d.message,_subject:'原绎智能官网留言 · '+(d.intent||'')})})
-        .then(function(r){return r.json();})
-        .then(function(j){if(j&&j.success){st.textContent='已收到 ✅ 我们会在两个工作日内回复。';f.reset();}else{mailto();}})
-        .catch(mailto);
-    });
-  }
 })();
 </script>
 </body>
