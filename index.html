@@ -177,7 +177,19 @@ footer p{opacity:.75;margin-top:16px}
 .roster b{color:var(--pass);font-weight:600}
 .roster i{font-style:normal;color:var(--muted);margin-inline:9px}
 .person{border-top:1px solid var(--line);padding-top:18px}
-@media (prefers-reduced-motion:reduce){.fw-arc{animation:none}.fw-node-g{animation:none}.fw-dot{display:none}}
+/* hero 学科轮播 */
+.rot{display:inline-grid}
+.rot>span{grid-area:1/1;white-space:nowrap;opacity:0;animation:rot-cycle 9.6s cubic-bezier(.4,0,.2,1) infinite}
+.rot>span:nth-child(2){animation-delay:1.2s}
+.rot>span:nth-child(3){animation-delay:2.4s}
+.rot>span:nth-child(4){animation-delay:3.6s}
+.rot>span:nth-child(5){animation-delay:4.8s}
+.rot>span:nth-child(6){animation-delay:6s}
+.rot>span:nth-child(7){animation-delay:7.2s}
+.rot>span:nth-child(8){animation-delay:8.4s}
+@keyframes rot-cycle{0%{opacity:0;transform:translateY(.14em)}2.5%{opacity:1;transform:none}10%{opacity:1;transform:none}12.5%{opacity:0;transform:translateY(-.1em)}100%{opacity:0;transform:translateY(-.1em)}}
+.vh{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+@media (prefers-reduced-motion:reduce){.fw-arc{animation:none}.fw-node-g{animation:none}.fw-dot{display:none}.rot>span{animation:none}.rot>span:first-child{opacity:1}}
 
 </style>
 </head><body>
@@ -196,12 +208,13 @@ footer p{opacity:.75;margin-top:16px}
 <header class="hero" id="top"><div class="wrap hero-grid">
   <div>
     <div class="eyebrow">Verification Infrastructure for Science</div>
-    <h1 style="margin-top:18px">让每一门学科，<br>都能被 AI <em>训练</em>。</h1>
+    <h1 style="margin-top:18px"><span class="vh">让每一门学科，都能被 AI 训练。</span>让<span class="rot" aria-hidden="true"><span>数学，</span><span>物理，</span><span>化学，</span><span>材料，</span><span>生物，</span><span>医学，</span><span>地球科学，</span><span>社会科学，</span></span><br>都能被 AI <em>训练</em>。</h1>
     <p class="lede">我们把科学编译成机器可验证的训练数据。从数学开始：判据、过程数据、奖励栈，一套方法，泛化到每一门学科。</p>
     <div class="cta">
       <a class="btn primary" href="#contact">合作咨询</a>
       <a class="btn" href="#method">看看我们怎么做</a>
     </div>
+    <p class="note mono" style="margin-top:22px">覆盖学科：数学 · 物理 · 化学 · 材料 · 生物 · 医学 · 地球科学 · 社会科学</p>
   </div>
   <div>
     <div class="samples">
@@ -361,7 +374,7 @@ footer p{opacity:.75;margin-top:16px}
 <footer id="contact"><div class="wrap">
   <h2>从数学开始，<br>编译整个科学。</h2>
   <p>科学家是人类知识与 AI 之间的桥梁，我们让这座桥可以规模化。<br>欢迎模型团队、研究机构与数学家合作，也欢迎加入我们。</p>
-  <div class="contact"><span>合作 · [邮箱]</span><span>加入我们 · [招聘邮箱]</span><span>[地址]</span></div>
+  <div class="contact"><span>合作 · 填写表格联系我们</span><span>加入我们 · 填写表格联系我们</span><span>地址 · 北京海淀区</span></div>
   <p class="src" style="color:inherit;opacity:.5;margin-top:48px">© 2026 原绎智能 Mathod Super Intelligence</p>
 </div></footer>
 
