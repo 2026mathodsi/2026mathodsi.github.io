@@ -52,11 +52,12 @@ a{color:inherit}
 
 /* ---------- 导航 ---------- */
 nav{position:fixed;inset:0 0 auto;z-index:20;transition:background .3s,border-color .3s;border-bottom:1px solid transparent}
-nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:64px}
-.logo{display:flex;gap:10px;align-items:center;text-decoration:none;font:900 19px/1 var(--display);color:var(--on-deep)}
-.logo i{width:10px;height:10px;border-radius:50%;background:var(--pass-deep);box-shadow:0 0 0 0 rgba(242,135,63,.6);animation:beat 2.4s infinite}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:68px}
+.logo{display:flex;gap:12px;align-items:center;text-decoration:none;font:900 23px/1 var(--display);letter-spacing:.01em;color:var(--on-deep)}
+.logo i{width:11px;height:11px;flex:none;border-radius:50%;background:var(--pass-deep);box-shadow:0 0 0 0 rgba(242,135,63,.6);animation:beat 2.4s infinite}
 @keyframes beat{0%{box-shadow:0 0 0 0 rgba(242,135,63,.55)}70%,100%{box-shadow:0 0 0 10px rgba(242,135,63,0)}}
-.logo b{font:500 11px/1 var(--mono);letter-spacing:.16em;color:var(--on-deep-2)}
+.logo b{display:inline-flex;align-items:center;font:500 11px/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;color:var(--on-deep-2)}
+.logo b::before{content:"";display:inline-block;width:1px;height:15px;background:currentColor;opacity:.4;margin-right:12px}
 nav ul{display:flex;gap:4px;list-style:none;margin:0;padding:0;font-size:14px}
 nav ul a{display:inline-flex;align-items:center;height:36px;padding:0 12px;border-radius:999px;text-decoration:none;color:var(--on-deep-2);transition:color .2s,background .2s}
 nav ul a:hover{color:var(--on-deep)}
